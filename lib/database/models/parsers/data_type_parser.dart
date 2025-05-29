@@ -1,11 +1,10 @@
 import 'dart:math';
 
 import 'package:petitparser/petitparser.dart';
-import 'package:query_builder/src/parsers.dart';
+import 'package:query_builder/database/models/parsers/create_table_parser.dart';
+import 'package:query_builder/database/models/parsers/data_type_model.dart';
 import 'package:query_builder/src/extensions.dart';
-
-import 'create_table_parser.dart';
-import 'data_type_model.dart';
+import 'package:query_builder/src/parsers.dart';
 
 Parser<String> _token(String str) {
   return stringIgnoreCase(str).trim();
@@ -129,7 +128,6 @@ final _stringTypeParser = (((_token('CHAR') |
   final Object? props = value[0];
   final characterSet =
       value[1] == null ? null : (value[1] as List)[2] as String;
-  final collation = value[2] as String?;
 
   final String key;
   final int? size;
