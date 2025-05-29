@@ -1,13 +1,13 @@
 import 'package:dart_style/dart_style.dart';
+import 'package:query_builder/database/models/parsers/data_type_model.dart';
+import 'package:query_builder/database/models/parsers/table_models.dart';
 import 'package:query_builder/src/extensions.dart';
-
-import '../parsers/data_type_model.dart';
-import '../parsers/table_models.dart';
 
 class SqlTableDartTemplate {
   final SqlTable table;
 
-  final _formatter = DartFormatter();
+  final _formatter =
+      DartFormatter(languageVersion: DartFormatter.latestLanguageVersion);
 
   SqlTableDartTemplate({required this.table});
 

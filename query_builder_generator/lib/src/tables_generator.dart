@@ -49,7 +49,9 @@ import 'package:query_builder/query_builder.dart';
 ${allTables.first.templates.dartClass(allTables)}
 ''';
       try {
-        out = DartFormatter().format(out);
+        out =
+            DartFormatter(languageVersion: DartFormatter.latestLanguageVersion)
+                .format(out);
       } catch (_) {}
       await buildStep.writeAsString(_allFileOutput(buildStep), out);
     } catch (e, s) {
